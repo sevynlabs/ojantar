@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Jantar — A Mesa dos Donos | Flávio Oliveira × Rafael Marcos | 20 de Abril</title>
+<meta name="description" content="40 empresários. 1 noite. Gastronomia de chef, palestras sem filtro e networking que transforma negócios. Saia da operação e escale com liberdade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0A1628;--navy-mid:#0E1B30;--navy-light:#1A2A42;--navy-lighter:#243550;
+  --gold:#C9A84C;--gold-light:#D4BA6A;--gold-pale:#E8D9A0;--gold-dark:#A88A3D;
+  --gold-10:rgba(201,168,76,0.1);--gold-15:rgba(201,168,76,0.15);--gold-05:rgba(201,168,76,0.05);--gold-20:rgba(201,168,76,0.2);
+  --white:#FFFFFF;--off-white:#F5F2EB;
+  --text-primary:rgba(255,255,255,0.92);--text-secondary:rgba(255,255,255,0.65);--text-muted:rgba(255,255,255,0.4);
+  --red:#E63946;--green:#4CAF50;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Barlow',sans-serif;background:var(--navy);color:var(--text-primary);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* Grain */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* Utils */
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+.container-sm{max-width:800px;margin:0 auto;padding:0 24px}
+.text-center{text-align:center}
+.gold{color:var(--gold)}
+.display{font-family:'Bebas Neue',sans-serif}
+.serif{font-family:'Cormorant Garamond',serif}
+
+/* =============================================
+   TOP BAR
+============================================= */
+.topbar{
+  background:var(--gold);color:var(--navy);text-align:center;
+  padding:11px 20px;font-size:13px;font-weight:600;letter-spacing:0.5px;
+  position:sticky;top:0;z-index:1000;
+}
+.topbar strong{text-transform:uppercase;letter-spacing:1px}
+.topbar a{color:var(--navy);text-decoration:underline;font-weight:700;margin-left:8px}
+
+/* =============================================
+   HERO — FULL VIEWPORT
+============================================= */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;
+  padding:80px 24px;position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(10,22,40,0.6) 0%,rgba(10,22,40,0.85) 50%,var(--navy) 100%),
+    radial-gradient(ellipse at 50% 30%,rgba(201,168,76,0.1) 0%,transparent 60%);
+}
+/* Decorative frame */
+.hero-frame{
+  position:absolute;inset:24px;border:1px solid rgba(201,168,76,0.12);
+  pointer-events:none;
+}
+.hero-frame::before,.hero-frame::after{
+  content:'';position:absolute;background:var(--gold);
+}
+.hero-frame::before{width:60px;height:1px;top:-1px;left:50%;transform:translateX(-50%)}
+.hero-frame::after{width:60px;height:1px;bottom:-1px;left:50%;transform:translateX(-50%)}
+
+.hero-content{position:relative;z-index:2;max-width:800px}
+
+.hero-date-badge{
+  display:inline-flex;align-items:center;gap:16px;
+  margin-bottom:36px;animation:fadeDown .7s ease both;
+}
+.hero-date-badge span{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold)}
+.hero-date-badge::before,.hero-date-badge::after{content:'';width:48px;height:1px;background:rgba(201,168,76,0.4)}
+
+.hero h1{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,14vw,140px);
+  line-height:0.88;color:var(--white);margin-bottom:4px;
+  animation:fadeUp .7s ease both;animation-delay:.1s;opacity:0;
+}
+.hero h2{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,6vw,56px);
+  line-height:1;color:var(--gold);letter-spacing:6px;margin-bottom:28px;
+  animation:fadeUp .7s ease both;animation-delay:.2s;opacity:0;
+}
+.hero-tagline{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.2vw,22px);
+  font-weight:300;font-style:italic;color:var(--text-secondary);
+  line-height:1.7;margin-bottom:40px;max-width:580px;margin-left:auto;margin-right:auto;
+  animation:fadeUp .7s ease both;animation-delay:.3s;opacity:0;
+}
+
+/* Countdown */
+.countdown{
+  display:flex;justify-content:center;gap:20px;margin-bottom:40px;
+  animation:fadeUp .7s ease both;animation-delay:.35s;opacity:0;
+}
+.countdown-item{text-align:center;min-width:64px}
+.countdown-item .num{
+  font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--white);
+  line-height:1;
+  background:rgba(201,168,76,0.08);border:1px solid var(--gold-15);
+  padding:8px 12px;display:block;
+}
+.countdown-item .lbl{font-size:9px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-top:6px}
+
+.btn-primary{
+  display:inline-block;padding:20px 60px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:var(--navy);font-family:'Bebas Neue',sans-serif;font-size:20px;
+  letter-spacing:3px;position:relative;overflow:hidden;
+  transition:all .4s cubic-bezier(.25,.46,.45,.94);
+  animation:fadeUp .7s ease both;animation-delay:.4s;opacity:0;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(201,168,76,0.35)}
+.btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left .5s}
+.btn-primary:hover::after{left:100%}
+.hero-sub-cta{
+  margin-top:16px;font-size:13px;color:var(--text-muted);letter-spacing:1px;
+  animation:fadeUp .7s ease both;animation-delay:.45s;opacity:0;
+}
+
+/* =============================================
+   DIVIDER
+============================================= */
+.divider{width:1px;height:72px;background:linear-gradient(var(--gold-10),var(--gold),var(--gold-10));margin:0 auto}
+.divider-sm{width:48px;height:1px;background:var(--gold);margin:0 auto}
+
+/* =============================================
+   SECTION GLOBALS
+============================================= */
+section{padding:96px 0;position:relative}
+.stag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,52px);line-height:1.05;margin-bottom:20px}
+.slead{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2vw,21px);font-weight:300;color:var(--text-secondary);line-height:1.8;margin-bottom:32px}
+.body{font-size:16px;line-height:1.8;color:var(--text-secondary);font-weight:300}
+.body strong{color:var(--text-primary);font-weight:600}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(28px);transition:all .65s cubic-bezier(.25,.46,.45,.94)}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+/* =============================================
+   VIDEO / PROMO SECTION
+============================================= */
+.promo{background:var(--navy-mid);overflow:hidden}
+.promo-video{
+  position:relative;max-width:720px;margin:0 auto 40px;
+  aspect-ratio:16/9;background:var(--navy);
+  border:1px solid var(--gold-15);overflow:hidden;
+}
+.promo-video-placeholder{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--navy),var(--navy-light));
+}
+.play-btn{
+  width:72px;height:72px;border-radius:50%;
+  border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;cursor:pointer;transition:all .3s;
+}
+.play-btn:hover{background:var(--gold-10);transform:scale(1.08)}
+.play-btn svg{fill:var(--gold);margin-left:4px}
+.promo-video-placeholder p{font-size:12px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase}
+
+/* =============================================
+   PROBLEM
+============================================= */
+.problem{background:var(--navy)}
+.problem-quote{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,30px);
+  font-weight:300;font-style:italic;color:var(--gold);line-height:1.5;
+  margin:36px 0;padding:24px 32px;border-left:2px solid var(--gold);
+  background:var(--gold-05);
+}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:40px}
+@media(max-width:700px){.pain-grid{grid-template-columns:1fr}}
+.pain-card{padding:28px 20px;background:var(--gold-05);border:1px solid var(--gold-10);transition:all .35s;position:relative;overflow:hidden}
+.pain-card::before{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:var(--gold);transition:width .4s}
+.pain-card:hover::before{width:100%}
+.pain-card:hover{background:var(--gold-10)}
+.pain-card h4{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--gold);margin-bottom:8px;letter-spacing:1px}
+.pain-card p{font-size:14px;color:var(--text-secondary);line-height:1.6;font-weight:300}
+
+/* =============================================
+   SPEAKERS — GRID STYLE (like Tríade Select)
+============================================= */
+.speakers{background:var(--navy-mid)}
+.spk-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+@media(max-width:720px){.spk-grid{grid-template-columns:1fr}}
+.spk{
+  position:relative;overflow:hidden;
+  border:1px solid var(--gold-15);
+  transition:all .4s;
+}
+.spk:hover{border-color:var(--gold);transform:translateY(-4px)}
+.spk-img{
+  height:280px;background:linear-gradient(180deg,var(--navy-light) 0%,var(--navy) 100%);
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+}
+.spk-img::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:120px;
+  background:linear-gradient(transparent,var(--navy));
+}
+.spk-img .initials{
+  font-family:'Bebas Neue',sans-serif;font-size:96px;color:var(--gold-10);
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.spk-img .number{
+  position:absolute;top:16px;left:20px;
+  font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--gold-10);z-index:2;
+}
+.spk-body{padding:28px 24px}
+.spk-name{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--gold);letter-spacing:1px;margin-bottom:2px}
+.spk-handle{font-size:13px;color:var(--gold-light);margin-bottom:4px}
+.spk-role{font-size:10px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.spk-bio{font-size:14px;color:var(--text-secondary);line-height:1.7;font-weight:300;margin-bottom:20px}
+.spk-stats{display:flex;gap:16px;padding-top:16px;border-top:1px solid var(--gold-10)}
+.spk-stat{text-align:center;flex:1}
+.spk-stat .v{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--gold)}
+.spk-stat .l{font-size:8px;color:var(--text-muted);letter-spacing:1.5px;text-transform:uppercase}
+
+/* =============================================
+   EXPERIENCE TIMELINE
+============================================= */
+.experience{background:var(--navy)}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+@media(max-width:700px){.exp-grid{grid-template-columns:1fr}}
+.exp-card{
+  padding:28px 24px;border:1px solid var(--gold-10);
+  background:var(--gold-05);transition:all .35s;
+}
+.exp-card:hover{border-color:var(--gold-15);background:var(--gold-10)}
+.exp-card .exp-time{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--gold);letter-spacing:2px;margin-bottom:8px}
+.exp-card h4{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--white);letter-spacing:1px;margin-bottom:8px}
+.exp-card p{font-size:14px;color:var(--text-secondary);line-height:1.6;font-weight:300}
+
+/* =============================================
+   BONUS STACK (Tríade Select style)
+============================================= */
+.bonus{background:var(--navy-mid)}
+.bonus-stack{margin-top:48px;display:flex;flex-direction:column;gap:16px;max-width:700px;margin-left:auto;margin-right:auto}
+.bonus-card{
+  display:flex;align-items:flex-start;gap:20px;
+  padding:24px;border:1px solid var(--gold-15);
+  background:linear-gradient(135deg,var(--gold-05),transparent);
+  transition:all .35s;
+}
+.bonus-card:hover{border-color:var(--gold);background:var(--gold-10)}
+.bonus-icon{
+  flex-shrink:0;width:48px;height:48px;
+  border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--gold);
+}
+.bonus-card h4{font-size:16px;font-weight:600;color:var(--white);margin-bottom:4px}
+.bonus-card p{font-size:14px;color:var(--text-secondary);line-height:1.5;font-weight:300}
+.bonus-value{font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--gold);letter-spacing:1px;margin-top:4px}
+
+/* =============================================
+   PRICING
+============================================= */
+.pricing{background:var(--navy);overflow:hidden}
+.pricing::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(201,168,76,0.05) 0%,transparent 70%);pointer-events:none}
+.value-anchor{
+  text-align:center;margin-bottom:40px;padding:28px;
+  border:1px dashed var(--gold-15);
+}
+.value-anchor .crossed{
+  font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--text-muted);
+  text-decoration:line-through;text-decoration-color:var(--red);
+}
+.value-anchor p{font-size:14px;color:var(--text-secondary);margin-top:6px;font-weight:300}
+
+.lotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+@media(max-width:800px){.lotes{grid-template-columns:1fr;max-width:380px;margin-left:auto;margin-right:auto}}
+.lote{
+  padding:32px 20px;text-align:center;border:1px solid var(--gold-15);
+  background:var(--navy-mid);position:relative;transition:all .4s;
+}
+.lote:hover{border-color:var(--gold);transform:translateY(-4px)}
+.lote.hot{border-color:var(--gold);background:linear-gradient(180deg,var(--gold-05),var(--navy-mid))}
+.lote.hot::before{
+  content:'✦ LOTE ATIVO';position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:var(--navy);font-size:9px;font-weight:700;letter-spacing:2px;
+  padding:4px 16px;white-space:nowrap;animation:pulse 2s infinite;
+}
+.lote-name{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--gold);margin-bottom:4px}
+.lote-slots{font-size:10px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.lote-price{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--white);line-height:1;margin-bottom:2px}
+.lote-price small{font-size:18px;color:var(--gold);vertical-align:top}
+.lote-pp{font-size:12px;color:var(--text-muted);margin-bottom:20px}
+.lote-cta{
+  display:block;width:100%;padding:14px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);
+  font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;
+  transition:all .3s;
+}
+.lote-cta:hover{box-shadow:0 8px 24px rgba(201,168,76,0.35)}
+
+/* Locked lotes */
+.lote.locked{
+  border-color:rgba(255,255,255,0.06);opacity:0.4;pointer-events:none;
+  filter:grayscale(0.6);position:relative;
+}
+.lote.locked::after{
+  content:'EM BREVE';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) rotate(-12deg);
+  font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;
+  color:rgba(255,255,255,0.12);white-space:nowrap;pointer-events:none;
+}
+.lote.locked .lote-cta{
+  background:rgba(255,255,255,0.08);color:var(--text-muted);cursor:default;
+}
+.lote.locked .lote-name{color:var(--text-muted)}
+.lote.locked .lote-price{color:var(--text-muted)}
+.lote.locked .lote-price small{color:var(--text-muted)}
+
+.includes-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;
+  max-width:680px;margin:0 auto;
+}
+@media(max-width:600px){.includes-grid{grid-template-columns:1fr}}
+.includes-grid li{
+  list-style:none;font-size:14px;color:var(--text-secondary);font-weight:300;
+  padding:8px 0 8px 22px;position:relative;line-height:1.5;
+}
+.includes-grid li::before{content:'◆';position:absolute;left:0;color:var(--gold);font-size:7px;top:12px}
+
+/* =============================================
+   FOR WHO
+============================================= */
+.forwho{background:var(--navy-mid)}
+.fw-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:36px}
+@media(max-width:700px){.fw-cols{grid-template-columns:1fr;gap:28px}}
+.fw-col h3{font-family:'Bebas Neue',sans-serif;font-size:22px;margin-bottom:16px;letter-spacing:1px}
+.fw-col.yes h3{color:var(--gold)}
+.fw-col.no h3{color:var(--red)}
+.fw-col ul{list-style:none}
+.fw-col li{font-size:14px;color:var(--text-secondary);font-weight:300;margin-bottom:12px;padding-left:22px;position:relative;line-height:1.6}
+.fw-col.yes li::before{content:'→';position:absolute;left:0;color:var(--gold);font-weight:600}
+.fw-col.no li::before{content:'×';position:absolute;left:0;color:var(--red);font-weight:700;font-size:16px}
+
+/* =============================================
+   FAQ
+============================================= */
+.faq{background:var(--navy)}
+.faq-list{margin-top:36px;max-width:700px;margin-left:auto;margin-right:auto}
+.faq-item{border-bottom:1px solid var(--gold-10)}
+.faq-q{padding:18px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:500;color:var(--text-primary);transition:color .3s}
+.faq-q:hover{color:var(--gold)}
+.faq-q::after{content:'+';font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--gold);transition:transform .3s;flex-shrink:0;margin-left:16px}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s,padding .4s;font-size:14px;color:var(--text-secondary);line-height:1.7;font-weight:300}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:18px}
+
+/* =============================================
+   CTA FINAL
+============================================= */
+.cta-final{
+  background:var(--navy-mid);text-align:center;padding:100px 24px;
+  position:relative;overflow:hidden;
+}
+.cta-final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,0.07) 0%,transparent 60%);pointer-events:none}
+.cta-big{
+  display:inline-block;padding:22px 72px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);
+  font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;
+  position:relative;overflow:hidden;transition:all .4s;
+}
+.cta-big:hover{transform:translateY(-3px);box-shadow:0 20px 60px rgba(201,168,76,0.4)}
+.cta-big::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left .5s}
+.cta-big:hover::after{left:100%}
+.cta-sub{margin-top:16px;font-size:12px;color:var(--gold);letter-spacing:3px;text-transform:uppercase}
+
+/* =============================================
+   FOOTER
+============================================= */
+footer{padding:40px 24px;text-align:center;border-top:1px solid var(--gold-10)}
+footer p{font-size:11px;color:var(--text-muted);letter-spacing:1px;line-height:2}
+footer a{color:var(--gold)}
+
+/* Floating CTA */
+.float-cta{display:none;position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(10,22,40,0.95);border-top:1px solid var(--gold-15);z-index:1000;backdrop-filter:blur(12px);text-align:center}
+.float-cta a{display:block;padding:13px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px}
+@media(max-width:768px){.float-cta{display:block}footer{padding-bottom:80px}.cta-final{padding-bottom:140px}}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* Responsive */
+@media(max-width:600px){
+  section{padding:72px 0}
+  .hero{padding:60px 20px}
+  .countdown{gap:12px}
+  .countdown-item .num{font-size:32px;padding:6px 8px}
+  .bonus-card{flex-direction:column;gap:12px}
+  .spk-img{height:200px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <strong>1° Lote Aberto</strong> — 15 convites por R$ 497 (você + acompanhante)
+  <a href="#investimento">Garantir →</a>
+</div>
+
+<!-- =============================================
+     HERO
+============================================= -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-frame"></div>
+  <div class="hero-content">
+    <div class="hero-date-badge"><span>20 de Abril de 2026</span></div>
+    <h1 class="hero-title" style="font-size:0;line-height:0;margin-bottom:28px">
+      <img src="https://i.postimg.cc/rsHk3J7d/O-JANTAR-%285%29.png" alt="O Jantar — A Mesa dos Donos" style="max-width:min(480px,85vw);height:auto;display:inline-block;animation:fadeUp .7s ease both;animation-delay:.1s">
+    </h1>
+    <p class="hero-tagline">
+      Uma noite exclusiva para empresários que querem sair da operação 
+      e escalar com liberdade — com estratégia de quem faz, gastronomia 
+      de chef e conexões que transformam negócios.
+    </p>
+
+    <!-- Countdown -->
+    <div class="countdown" id="countdown">
+      <div class="countdown-item"><span class="num" id="cd-days">--</span><span class="lbl">Dias</span></div>
+      <div class="countdown-item"><span class="num" id="cd-hours">--</span><span class="lbl">Horas</span></div>
+      <div class="countdown-item"><span class="num" id="cd-mins">--</span><span class="lbl">Min</span></div>
+      <div class="countdown-item"><span class="num" id="cd-secs">--</span><span class="lbl">Seg</span></div>
+    </div>
+
+    <a href="#investimento" class="btn-primary">GARANTE SUA VAGA</a>
+    <p class="hero-sub-cta">40 convites · 80 convidados · Sem replay · Sem gravação</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =============================================
+     VIDEO / PROMO
+============================================= -->
+<section class="promo">
+  <div class="container text-center">
+    <div class="rv">
+      <span class="stag">Assista ao Convite</span>
+      <h2 class="stitle">Flávio e Rafael te convidam<br>para <span class="gold">a noite que muda tudo.</span></h2>
+    </div>
+    <div class="promo-video rv">
+      <div class="promo-video-placeholder">
+        <div class="play-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+        </div>
+        <p>Inserir vídeo de convite aqui</p>
+      </div>
+    </div>
+    <p class="body" style="max-width:560px;margin:0 auto">
+      Dois empresários que saíram do zero e construíram impérios vão abrir o jogo 
+      — sem filtro — numa mesa com apenas <strong>40 empresários selecionados.</strong>
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =============================================
+     PROBLEMA
+============================================= -->
+<section class="problem">
+  <div class="container">
+    <div class="rv">
+      <span class="stag">A verdade que ninguém tem coragem de te falar</span>
+      <h2 class="stitle">Você construiu um negócio.<br>Mas ele <span class="gold">aprisiona</span> você.</h2>
+      <p class="body">
+        Fatura. Tem equipe. Tem clientes. Mas no fundo sabe: está <strong>preso na operação</strong>. 
+        Apagando incêndio todo dia. Sendo o empregado mais caro da própria empresa. 
+        Sem férias. Sem viagem. Sem liberdade.
+      </p>
+    </div>
+    <div class="problem-quote rv">
+      "Se você sumir 30 dias e tudo desanda — você não tem empresa. Você tem emprego. 
+      E dos piores: um que paga mal pelo tanto que você trabalha."
+    </div>
+    <div class="pain-grid rv">
+      <div class="pain-card">
+        <h4>Preso na Operação</h4>
+        <p>Primeiro a chegar, último a sair. Se não está lá, ninguém resolve. O negócio para sem você.</p>
+      </div>
+      <div class="pain-card">
+        <h4>Fatura Mas Não Escala</h4>
+        <p>O faturamento cresce, a margem aperta. Mais trabalho, mesmo resultado. Gira mas não avança.</p>
+      </div>
+      <div class="pain-card">
+        <h4>Sem Vida Além do CNPJ</h4>
+        <p>Família esperando, saúde negligenciada, viagens adiadas. O negócio roubou sua liberdade.</p>
+      </div>
+    </div>
+    <div class="rv" style="margin-top:40px;text-align:center">
+      <p class="body">
+        Você olha pra outros empresários com liberdade e se pergunta: 
+        <strong>"O que eles sabem que eu não sei?"</strong><br><br>
+        No dia <strong>20 de Abril</strong>, você vai descobrir.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =============================================
+     PALESTRANTES (Grid — Tríade Select style)
+============================================= -->
+<section class="speakers">
+  <div class="container">
+    <div class="text-center rv">
+      <span class="stag">Quem vai estar na sua mesa</span>
+      <h2 class="stitle">Dois homens que <span class="gold">saíram do zero</span><br>e construíram impérios com liberdade.</h2>
+    </div>
+
+    <div class="spk-grid">
+      <!-- Flávio -->
+      <div class="spk rv">
+        <div class="spk-img">
+          <span class="number">01</span>
+          <span class="initials">FO</span>
+        </div>
+        <div class="spk-body">
+          <div class="spk-name">Flávio Oliveira</div>
+          <div class="spk-handle">@flaviobigjhow</div>
+          <div class="spk-role">Empresário · Mentor · Criador do Método E.S.C.A.L.A.</div>
+          <p class="spk-bio">
+            Saiu do zero e construiu um ecossistema de +R$ 30 milhões no varejo da carne 
+            e experiência gastronômica. No último ano, cresceu 3x em faturamento. 
+            Hoje viaja 10 vezes por ano com a família enquanto o negócio cresce sem ele. 
+            Prova viva de que é possível escalar com liberdade.
+          </p>
+          <div class="spk-stats">
+            <div class="spk-stat"><div class="v">R$30M+</div><div class="l">Faturados</div></div>
+            <div class="spk-stat"><div class="v">3x</div><div class="l">Crescimento</div></div>
+            <div class="spk-stat"><div class="v">10+</div><div class="l">Viagens/Ano</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rafael -->
+      <div class="spk rv">
+        <div class="spk-img">
+          <span class="number">02</span>
+          <span class="initials">RM</span>
+        </div>
+        <div class="spk-body">
+          <div class="spk-name">Rafael Marcos</div>
+          <div class="spk-handle">@rafamarcoson</div>
+          <div class="spk-role">Empresário · Treinador · Escritor</div>
+          <p class="spk-bio">
+            Empresário, treinador e escritor com 158K seguidores. Fundador da Build e da Tríade. 
+            Autor de "Tríade do Empreendedor" com prefácio de Pablo Marçal. 
+            Referência nacional em networking de alto nível, mentorias e alta performance empresarial.
+          </p>
+          <div class="spk-stats">
+            <div class="spk-stat"><div class="v">158K</div><div class="l">Seguidores</div></div>
+            <div class="spk-stat"><div class="v">Build</div><div class="l">Fundador</div></div>
+            <div class="spk-stat"><div class="v">Tríade</div><div class="l">Autor</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =============================================
+     EXPERIÊNCIA DA NOITE
+============================================= -->
+<section class="experience">
+  <div class="container">
+    <div class="text-center rv">
+      <span class="stag">O que você vai viver</span>
+      <h2 class="stitle">Uma experiência <span class="gold">impossível de replicar.</span></h2>
+      <p class="slead">Não é um evento. É uma noite que une gastronomia, conhecimento e conexões que mudam negócios.</p>
+    </div>
+    <div class="exp-grid rv">
+      <div class="exp-card">
+        <div class="exp-time">18:30</div>
+        <h4>Recepção & Welcome Drink</h4>
+        <p>Chegada com drink de boas-vindas, música ambiente e as primeiras conexões da noite.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-time">19:00</div>
+        <h4>Gastronomia com Chef Renomada</h4>
+        <p>Menu exclusivo: entrada, prato principal, sobremesa. Experiência sensorial completa.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-time">19:45</div>
+        <h4>Palestra Flávio Oliveira</h4>
+        <p>A história real — do zero ao ecossistema de R$ 30M+. Pessoal, espiritual e empresarial. Sem filtro.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-time">21:15</div>
+        <h4>Palestra Rafael Marcos</h4>
+        <p>Networking, negócios e alta performance. Como as conexões certas aceleram tudo.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-time">21:45</div>
+        <h4>Networking Estruturado</h4>
+        <p>Dinâmicas com 40 empresários qualificados. Conexões que geram contratos reais.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-time">22:00</div>
+        <h4>Encerramento & Fotos</h4>
+        <p>Sobremesa especial, discurso de encerramento e registro profissional da noite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =============================================
+     BÔNUS (Tríade Select style)
+============================================= -->
+<section class="bonus">
+  <div class="container">
+    <div class="text-center rv">
+      <span class="stag">Bônus Exclusivos</span>
+      <h2 class="stitle">Além da noite, você ainda <span class="gold">leva tudo isso:</span></h2>
+    </div>
+    <div class="bonus-stack rv">
+      <div class="bonus-card">
+        <div class="bonus-icon">01</div>
+        <div>
+          <h4>Acompanhante Incluso</h4>
+          <p>Cada convite dá direito a você + 1 acompanhante — cônjuge ou sócio. Levem a decisão pra mesa juntos.</p>
+          <div class="bonus-value">Valor: R$ 497+</div>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-icon">02</div>
+        <div>
+          <h4>Diagnóstico E.S.C.A.L.A. Digital</h4>
+          <p>Acesso exclusivo à ferramenta proprietária de diagnóstico empresarial do Flávio. Identifique exatamente onde seu negócio está travado nos 6 pilares.</p>
+          <div class="bonus-value">Valor: R$ 697</div>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-icon">03</div>
+        <div>
+          <h4>Grupo VIP WhatsApp — 30 Dias</h4>
+          <p>O networking não morre no evento. Grupo exclusivo para continuar conexões, trocar experiências e gerar negócios por 30 dias.</p>
+          <div class="bonus-value">Valor: R$ 297</div>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-icon">04</div>
+        <div>
+          <h4>Acesso Prioritário à Mentoria Master</h4>
+          <p>Quem estiver na sala terá condições exclusivas e prioridade para ingressar na Mentoria Master do Flávio — indisponível para quem não estava presente.</p>
+          <div class="bonus-value">Valor: Impagável</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =============================================
+     INVESTIMENTO
+============================================= -->
+<section class="pricing" id="investimento">
+  <div class="container">
+    <div class="text-center rv">
+      <span class="stag">Investimento</span>
+      <h2 class="stitle">Tudo isso valeria mais de <span class="gold">R$ 5.000.</span><br>Mas você não vai pagar isso.</h2>
+    </div>
+
+    <div class="value-anchor rv">
+      <div class="crossed display">R$ 5.038</div>
+      <p>Valor real de tudo que está incluso na experiência completa</p>
+    </div>
+
+    <div class="lotes rv">
+      <div class="lote hot">
+        <div class="lote-name">1° Lote</div>
+        <div class="lote-slots">15 Convites — Aberto Agora</div>
+        <div class="lote-price"><small>R$</small> 497</div>
+        <div class="lote-pp">R$ 248,50 por pessoa</div>
+        <a href="https://payfast.greenn.com.br/xdnmemr" class="lote-cta">GARANTIR MINHA VAGA</a>
+      </div>
+      <div class="lote locked">
+        <div class="lote-name">2° Lote</div>
+        <div class="lote-slots">15 Convites</div>
+        <div class="lote-price"><small>R$</small> 697</div>
+        <div class="lote-pp">R$ 348,50 por pessoa</div>
+        <span class="lote-cta">DISPONÍVEL EM BREVE</span>
+      </div>
+      <div class="lote locked">
+        <div class="lote-name">3° Lote</div>
+        <div class="lote-slots">10 Convites</div>
+        <div class="lote-price"><small>R$</small> 1.297</div>
+        <div class="lote-pp">R$ 648,50 por pessoa</div>
+        <span class="lote-cta">DISPONÍVEL EM BREVE</span>
+      </div>
+    </div>
+
+    <div class="text-center rv"><h3 class="display gold" style="font-size:24px;letter-spacing:1px;margin-bottom:20px">Cada Convite Inclui:</h3></div>
+    <ul class="includes-grid rv">
+      <li>Acesso para você + 1 acompanhante</li>
+      <li>Experiência gastronômica completa</li>
+      <li>Palestra exclusiva Flávio Oliveira</li>
+      <li>Palestra Rafael Marcos</li>
+      <li>Networking com 40 empresários</li>
+      <li>Welcome drink + sobremesa</li>
+      <li>Diagnóstico E.S.C.A.L.A. digital</li>
+      <li>Grupo VIP WhatsApp 30 dias</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =============================================
+     PARA QUEM É
+============================================= -->
+<section class="forwho">
+  <div class="container">
+    <div class="text-center rv">
+      <span class="stag">Antes de Garantir</span>
+      <h2 class="stitle">Essa mesa <span class="gold">não é para todo mundo.</span></h2>
+    </div>
+    <div class="fw-cols rv">
+      <div class="fw-col yes">
+        <h3>→ É Para Você Se:</h3>
+        <ul>
+          <li>É empresário e fatura mas não escala sem estar presente</li>
+          <li>Está preso na operação e quer sair — de verdade</li>
+          <li>Quer um negócio que funciona sem depender de você</li>
+          <li>Valoriza networking com quem joga grande</li>
+          <li>Está cansado de teoria e quer sentar com quem FAZ</li>
+          <li>Busca liberdade financeira, geográfica e de tempo</li>
+        </ul>
+      </div>
+      <div class="fw-col no">
+        <h3>× Não É Para Você Se:</h3>
+        <ul>
+          <li>Busca fórmula mágica sem esforço</li>
+          <li>Não está disposto a mudar como opera</li>
+          <li>Quer só assistir — sem se conectar e agir</li>
+          <li>Acha que já sabe tudo</li>
+          <li>Não investe em si mesmo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- =============================================
+     FAQ
+============================================= -->
+<section class="faq">
+  <div class="container">
+    <div class="text-center rv">
+      <span class="stag">Dúvidas</span>
+      <h2 class="stitle">Perguntas <span class="gold">Frequentes</span></h2>
+    </div>
+    <div class="faq-list rv">
+      <div class="faq-item"><div class="faq-q">O convite dá direito a quantas pessoas?</div><div class="faq-a">Cada convite inclui você + 1 acompanhante (cônjuge ou sócio). São 40 convites para 80 convidados.</div></div>
+      <div class="faq-item"><div class="faq-q">Qual a data e horário?</div><div class="faq-a">20 de Abril de 2026 (Domingo). Recepção às 18:30, evento até ~22:30.</div></div>
+      <div class="faq-item"><div class="faq-q">Onde será?</div><div class="faq-a">O local exato será comunicado por email e WhatsApp após a confirmação da compra. Espaço premium e exclusivo.</div></div>
+      <div class="faq-item"><div class="faq-q">O que está incluso?</div><div class="faq-a">Gastronomia completa com chef, duas palestras (Flávio + Rafael), networking estruturado, Diagnóstico E.S.C.A.L.A. digital e grupo VIP WhatsApp 30 dias.</div></div>
+      <div class="faq-item"><div class="faq-q">Posso parcelar?</div><div class="faq-a">Sim. Cartão de crédito, boleto e PIX disponíveis no checkout.</div></div>
+      <div class="faq-item"><div class="faq-q">Vai ter gravação?</div><div class="faq-a">Não. Experiência 100% presencial. Sem replay, sem transmissão. Quem estava, viveu.</div></div>
+      <div class="faq-item"><div class="faq-q">E se eu não puder ir?</div><div class="faq-a">Transfira seu convite para outro empresário até 48h antes. Comunique por WhatsApp.</div></div>
+      <div class="faq-item"><div class="faq-q">Qual o dress code?</div><div class="faq-a">Smart casual. Vista-se como o empresário que você é.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     CTA FINAL
+============================================= -->
+<section class="cta-final">
+  <div class="container rv">
+    <h2 class="stitle"><span class="gold">40 convites.</span><br>Quando acabar, acabou.</h2>
+    <p class="slead" style="max-width:540px;margin:0 auto 40px">
+      Não vai ter replay. Não vai ter gravação. Vai ter uma noite. 
+      E ela pode mudar tudo no seu negócio.<br><br>
+      <strong style="color:var(--white)">Você vai estar lá, ou vai ficar sabendo depois?</strong>
+    </p>
+    <a href="#investimento" class="cta-big">GARANTE SUA VAGA AGORA</a>
+    <div class="cta-sub">20 de Abril · Vagas Limitadas · Sem Exceção</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong style="color:var(--gold)">O JANTAR — A MESA DOS DONOS</strong></p>
+  <p>Uma realização de Flávio Oliveira × Rafael Marcos</p>
+  <p>Dúvidas? <a href="https://www.instagram.com/flaviobigjhow" target="_blank">@flaviobigjhow</a></p>
+  <p style="margin-top:12px;font-size:10px">Este site não é afiliado ao Facebook/Meta. Todos os direitos reservados © 2026</p>
+</footer>
+
+<!-- FLOATING CTA -->
+<div class="float-cta" id="floatCta">
+  <a href="#investimento">GARANTE SUA VAGA — A PARTIR DE R$ 497</a>
+</div>
+
+<script>
+// Countdown to April 20, 2026 18:30 BRT (UTC-3)
+const target = new Date('2026-04-20T21:30:00Z').getTime();
+function updateCountdown(){
+  const now = Date.now();
+  const diff = target - now;
+  if(diff <= 0){
+    document.getElementById('cd-days').textContent = '00';
+    document.getElementById('cd-hours').textContent = '00';
+    document.getElementById('cd-mins').textContent = '00';
+    document.getElementById('cd-secs').textContent = '00';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Scroll reveal
+const rvEls = document.querySelectorAll('.rv');
+const revealCheck = () => {
+  rvEls.forEach(el => {
+    if(el.getBoundingClientRect().top < window.innerHeight * 0.88) el.classList.add('vis');
+  });
+};
+window.addEventListener('scroll', revealCheck);
+window.addEventListener('load', revealCheck);
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  });
+});
+
+// Floating CTA
+const fc = document.getElementById('floatCta');
+if(fc){
+  fc.style.transform = 'translateY(100%)';
+  fc.style.transition = 'transform .4s ease';
+  window.addEventListener('scroll', () => {
+    fc.style.transform = window.scrollY > 500 ? 'translateY(0)' : 'translateY(100%)';
+  });
+}
+</script>
+</body>
+</html>
