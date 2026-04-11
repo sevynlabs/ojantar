@@ -200,16 +200,17 @@ section{padding:96px 0;position:relative}
 }
 .spk:hover{border-color:var(--gold);transform:translateY(-4px)}
 .spk-img{
-  height:280px;background:linear-gradient(180deg,var(--navy-light) 0%,var(--navy) 100%);
+  height:420px;background:linear-gradient(180deg,var(--navy-light) 0%,var(--navy) 100%);
   display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
 }
-.spk-img::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:120px;
-  background:linear-gradient(transparent,var(--navy));
+.spk-img img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  filter:grayscale(15%) contrast(1.05);
 }
-.spk-img .initials{
-  font-family:'Bebas Neue',sans-serif;font-size:96px;color:var(--gold-10);
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+.spk-img::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:160px;
+  background:linear-gradient(transparent,var(--navy-mid));z-index:1;pointer-events:none;
 }
 .spk-img .number{
   position:absolute;top:16px;left:20px;
@@ -427,7 +428,7 @@ footer a{color:var(--gold)}
     </h1>
     <p class="hero-tagline">
       Uma noite exclusiva para empresários que querem sair da operação 
-      e escalar com liberdade — com estratégia de quem faz, gastronomia 
+      e escalar com liberdade, com estratégia de quem faz, gastronomia 
       de chef e conexões que transformam negócios.
     </p>
 
@@ -441,32 +442,6 @@ footer a{color:var(--gold)}
 
     <a href="#investimento" class="btn-primary">GARANTE SUA VAGA</a>
     <p class="hero-sub-cta">40 convites · 80 convidados · Sem replay · Sem gravação</p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- =============================================
-     VIDEO / PROMO
-============================================= -->
-<section class="promo">
-  <div class="container text-center">
-    <div class="rv">
-      <span class="stag">Assista ao Convite</span>
-      <h2 class="stitle">Flávio e Rafael te convidam<br>para <span class="gold">a noite que muda tudo.</span></h2>
-    </div>
-    <div class="promo-video rv">
-      <div class="promo-video-placeholder">
-        <div class="play-btn">
-          <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
-        </div>
-        <p>Inserir vídeo de convite aqui</p>
-      </div>
-    </div>
-    <p class="body" style="max-width:560px;margin:0 auto">
-      Dois empresários que saíram do zero e construíram impérios vão abrir o jogo 
-      — sem filtro — numa mesa com apenas <strong>40 empresários selecionados.</strong>
-    </p>
   </div>
 </section>
 
@@ -487,7 +462,7 @@ footer a{color:var(--gold)}
       </p>
     </div>
     <div class="problem-quote rv">
-      "Se você sumir 30 dias e tudo desanda — você não tem empresa. Você tem emprego. 
+      "Se você sumir 30 dias e tudo desanda, você não tem empresa. Você tem emprego. 
       E dos piores: um que paga mal pelo tanto que você trabalha."
     </div>
     <div class="pain-grid rv">
@@ -530,13 +505,13 @@ footer a{color:var(--gold)}
       <!-- Flávio -->
       <div class="spk rv">
         <div class="spk-img">
+          <img src="Flavio%20Big%20Jhow.png" alt="Flávio Oliveira">
           <span class="number">01</span>
-          <span class="initials">FO</span>
         </div>
         <div class="spk-body">
           <div class="spk-name">Flávio Oliveira</div>
           <div class="spk-handle">@flaviobigjhow</div>
-          <div class="spk-role">Empresário · Mentor · Criador do Método E.S.C.A.L.A.</div>
+          <div class="spk-role">Empresário · Mentor · Criador do M.A.C (Método Acelerador de Crescimento)</div>
           <p class="spk-bio">
             Saiu do zero e construiu um ecossistema de +R$ 30 milhões no varejo da carne 
             e experiência gastronômica. No último ano, cresceu 3x em faturamento. 
@@ -554,8 +529,8 @@ footer a{color:var(--gold)}
       <!-- Rafael -->
       <div class="spk rv">
         <div class="spk-img">
+          <img src="Rafa%20Marcos.png" alt="Rafael Marcos">
           <span class="number">02</span>
-          <span class="initials">RM</span>
         </div>
         <div class="spk-body">
           <div class="spk-name">Rafael Marcos</div>
@@ -647,21 +622,13 @@ footer a{color:var(--gold)}
       <div class="bonus-card">
         <div class="bonus-icon">02</div>
         <div>
-          <h4>Diagnóstico E.S.C.A.L.A. Digital</h4>
-          <p>Acesso exclusivo à ferramenta proprietária de diagnóstico empresarial do Flávio. Identifique exatamente onde seu negócio está travado nos 6 pilares.</p>
-          <div class="bonus-value">Valor: R$ 697</div>
-        </div>
-      </div>
-      <div class="bonus-card">
-        <div class="bonus-icon">03</div>
-        <div>
           <h4>Grupo VIP WhatsApp — 30 Dias</h4>
           <p>O networking não morre no evento. Grupo exclusivo para continuar conexões, trocar experiências e gerar negócios por 30 dias.</p>
           <div class="bonus-value">Valor: R$ 297</div>
         </div>
       </div>
       <div class="bonus-card">
-        <div class="bonus-icon">04</div>
+        <div class="bonus-icon">03</div>
         <div>
           <h4>Acesso Prioritário à Mentoria Master</h4>
           <p>Quem estiver na sala terá condições exclusivas e prioridade para ingressar na Mentoria Master do Flávio — indisponível para quem não estava presente.</p>
@@ -681,11 +648,11 @@ footer a{color:var(--gold)}
   <div class="container">
     <div class="text-center rv">
       <span class="stag">Investimento</span>
-      <h2 class="stitle">Tudo isso valeria mais de <span class="gold">R$ 5.000.</span><br>Mas você não vai pagar isso.</h2>
+      <h2 class="stitle">Tudo isso valeria mais de <span class="gold">R$ 4.000.</span><br>Mas você não vai pagar isso.</h2>
     </div>
 
     <div class="value-anchor rv">
-      <div class="crossed display">R$ 5.038</div>
+      <div class="crossed display">R$ 4.341</div>
       <p>Valor real de tudo que está incluso na experiência completa</p>
     </div>
 
@@ -721,7 +688,6 @@ footer a{color:var(--gold)}
       <li>Palestra Rafael Marcos</li>
       <li>Networking com 40 empresários</li>
       <li>Welcome drink + sobremesa</li>
-      <li>Diagnóstico E.S.C.A.L.A. digital</li>
       <li>Grupo VIP WhatsApp 30 dias</li>
     </ul>
   </div>
@@ -779,7 +745,7 @@ footer a{color:var(--gold)}
       <div class="faq-item"><div class="faq-q">O convite dá direito a quantas pessoas?</div><div class="faq-a">Cada convite inclui você + 1 acompanhante (cônjuge ou sócio). São 40 convites para 80 convidados.</div></div>
       <div class="faq-item"><div class="faq-q">Qual a data e horário?</div><div class="faq-a">20 de Abril de 2026 (Domingo). Recepção às 18:30, evento até ~22:30.</div></div>
       <div class="faq-item"><div class="faq-q">Onde será?</div><div class="faq-a">O local exato será comunicado por email e WhatsApp após a confirmação da compra. Espaço premium e exclusivo.</div></div>
-      <div class="faq-item"><div class="faq-q">O que está incluso?</div><div class="faq-a">Gastronomia completa com chef, duas palestras (Flávio + Rafael), networking estruturado, Diagnóstico E.S.C.A.L.A. digital e grupo VIP WhatsApp 30 dias.</div></div>
+      <div class="faq-item"><div class="faq-q">O que está incluso?</div><div class="faq-a">Gastronomia completa com chef, duas palestras (Flávio + Rafael), networking estruturado e grupo VIP WhatsApp 30 dias.</div></div>
       <div class="faq-item"><div class="faq-q">Posso parcelar?</div><div class="faq-a">Sim. Cartão de crédito, boleto e PIX disponíveis no checkout.</div></div>
       <div class="faq-item"><div class="faq-q">Vai ter gravação?</div><div class="faq-a">Não. Experiência 100% presencial. Sem replay, sem transmissão. Quem estava, viveu.</div></div>
       <div class="faq-item"><div class="faq-q">E se eu não puder ir?</div><div class="faq-a">Transfira seu convite para outro empresário até 48h antes. Comunique por WhatsApp.</div></div>
